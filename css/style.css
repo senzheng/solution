@@ -1,0 +1,115 @@
+
+html, body {
+   height: 100%;
+   background-color: #D3D3D3; 
+}
+.sort-button{
+    background-color: #D3D3D3;
+    border: none;
+    color: black;
+    padding: 6px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-align: center;
+}
+.apt-img {
+	text-align: center;
+}
+
+.active {
+	background-color: #FFA500;
+	text-align: center;
+    width: 100px;
+}
+
+.panel{
+	background-color: #D3D3D3;
+	height: 100%;
+}
+.grid-might{
+	padding: 0em 0 0;
+}
+
+.price{
+	
+	top: 0; bottom: 0; left: 0; right: 0;
+    position: relative;
+    display: inline-block;
+    margin-top: 100px;
+    float: right;
+
+    
+}
+.price-preifx{
+	color: #ffaf4d;
+	font-weight: 100;
+	
+}
+
+.price-value {
+	
+    color: #ffaf4d;
+    font-size: 200%;
+    
+}
+
+
+
+.price-unit{
+    color: #ffaf4d;
+    font-weight: 100;
+    font-size: 120%;
+    text-align: right;
+}
+
+.rowtop {
+	margin-left: 5px;
+} 
+
+.rowbottom {
+	margin-right: 0px;
+}
+.might-top{
+	padding: 0em 0 0;
+}
+.might-top p{
+	font-size:0.9em;
+	color:#494949;
+	line-height:1.8em;
+}
+.might-grid {
+	height: 100%;
+	min-height: 100%;
+	padding: 0px;
+	margin-left: 15px;
+	margin-top: 10px;
+	background-color: #FFFFFF;
+}
+.might-top h4:hover {
+	text-decoration: underline;
+}
+.detail{
+	position: relative;
+	border-top-style: solid;
+	border-width: 1px;
+	color: #778899;
+	font-size: 80%;
+}
+.might-top a:hover{
+	color:#ec098d;
+}
+.might-top a i{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nonpadding {
+	padding: 0;
+	margin: 0;
+}

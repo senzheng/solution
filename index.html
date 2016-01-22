@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="weHousing">
+<head>
+    <title>Wehousing</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script>
+        angular.module("weHousing", ["customFilters"]);
+    </script>
+    <script src="controllers/weHousing.js"></script>
+    <script src="filters/customFilters.js"></script>
+    <script src="controllers/apartmentListControllers.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if gte IE 9]>
+        <link rel="stylesheet" type="text/css" href="includes/ie9.css" />
+     <![endif]-->
+</head>
+<body ng-controller="weHousingCtrl">
+
+    <div class="panel panel-default row" ng-controller="apartmentListCtrl" >
+    	<div class="col-sm-2 col-md-2 co-sx-3"></div>
+        <div class="col-sm-8 col-md-8 co-xs-12" ng-show="apartmentList">
+            <div class="might">
+               <div class="row rowtop">
+                 <div class="col-sm-12">
+				   <h4>{{title}}: {{totalNumber}} Apartments</h4>
+			     </div>
+			    </div> 
+			   <div class="row rowbottom">
+				<div class="pull-right btn-group" role="group" ng-model="Sort">
+				  <button class="sort-button" type="button" ng-class="active1? 'sort-button active' : 'sort-button'"  ng-click="SortPopularity()">Popularity</button>
+				  <button class="sort-button" type="button" ng-class="active2? 'sort-button active' : 'sort-button'"  ng-click="SortPrice()">Price</button>
+				</div>
+			   </div>
+            </div>
+
+				<div class="might-grid" ng-repeat="item in data.apartments | filter:placeFilterFn | range:selectedPage:pageSize | orderBy:Sort:reverse">
+				    <div class="col-sm-5 col-md-5 col-xs-7 nonpadding">
+					  <div class="grid-might">
+						<img src="{{item.image}}" class="img-responsive" alt="">
+					  </div>
+				    </div>	
+				    <div class="col-sm-7 col-md-7 col-xs-11">
+					<div class="might-top">
+						<h4 class="title" ng-click="showDetail(item)">{{item.name}}</h4>
+						<div class="detail">{{item.description}}</br>{{item.place}}</div>
+				
+
+					   <div class="price">	
+						<div>
+							<span class="price-preifx">From</span>
+							<span class="price-value ng-binding">{{item.price | currency}}</span>
+						</div>
+						<div class="price-unit">USD/Month</div>
+					   </div>
+					   <div class="clearfix visible-sm" ></div>	
+					</div>
+					</div>
+				  <div class="clearfix" ></div>
+			    
+			   </div>
+			
+            <div class="pull-right btn-group">
+                <a class="sort-button" ng-repeat="page in data.apartments | pageCount:pageSize"
+                   ng-click="selectPage($index + 1)" class="btn btn-default"
+                   ng-class="getPageClass($index + 1)">
+                    {{$index + 1}}
+                </a>
+            </div>
+        
+       </div>
+       <div class="container" ng-hide="apartmentList">
+       	<div class="apt-image">
+    	  <img src="{{apt.image}}" class="apt">
+         </div>
+
+				<h1>{{apt.name}}</h1>
+
+				<p>{{apt.description}}</p>
+
+
+
+				<ul class="table">
+				  <li>
+				    <span>Popularity</span>
+				      {{apt.popularity}}
+				  </li>
+				  <li>
+				    <span>Price</span>
+				     {{apt.price}}
+				  </li>
+			</div>
+     </div>
+ </div>
+				    
+  </body>
+</html>
+
+
